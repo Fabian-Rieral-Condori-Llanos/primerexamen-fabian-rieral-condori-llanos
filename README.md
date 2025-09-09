@@ -31,3 +31,15 @@ Este proyecto implementa las siguientes características de accesibilidad web:
 - ✅ Contraste de colores verificado (texto negro #333 sobre fondos claros)
 - ✅ Navegación completa por teclado probada (Tab, Shift+Tab, Enter, Space)
 - ✅ Estructura semántica validada con herramientas de desarrollo del navegador
+
+## SEO
+
+Este proyecto implementa optimización SEO on-page siguiendo las mejores prácticas:
+
+• **Título optimizado**: Se cambió de genérico "MANACO - Calzado de Calidad" a específico "MANACO - Calzado Deportivo, Casual y Formal | Zapatos de Calidad" (71 caracteres) incluyendo palabras clave relevantes y diferenciando tipos de productos.
+
+• **Meta descripción estratégica**: Descripción de 156 caracteres que incluye llamada a la acción, palabras clave primarias (calzado, zapatos, deportivos, casuales, formales) y propuesta de valor única "impulsa tu paso".
+
+• **Open Graph completo**: Implementación de meta tags OG (og:title, og:description, og:image, og:url, og:type, og:site_name, og:locale) para optimizar compartición en redes sociales con imagen placeholder profesional.
+
+• **Estructura de encabezados coherente**: H1 único y descriptivo "Calzado que impulsa tu paso" como título principal, H2 para sección "Productos", H3 para nombres específicos de productos, manteniendo jerarquía semántica clara.
