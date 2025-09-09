@@ -31,15 +31,22 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
             color: #333;
             text-decoration: none;
             font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
+            background-color: #e0e0e0;
             text-decoration: underline;
         }
 
@@ -56,6 +63,7 @@
             font-size: 2.5rem;
             color: #333;
             line-height: 1.2;
+            margin: 0;
         }
 
         .productos-section {
@@ -73,6 +81,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .producto {
@@ -85,27 +95,8 @@
             background-color: #d0d0d0;
             border: 2px solid #333;
             margin: 0 auto 1rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .producto-imagen::before,
-        .producto-imagen::after {
-            content: '';
-            position: absolute;
-            background-color: #333;
-            width: 2px;
-            height: 100px;
-        }
-
-        .producto-imagen::before {
-            transform: rotate(45deg);
-        }
-
-        .producto-imagen::after {
-            transform: rotate(-45deg);
+            display: block;
+            border-radius: 4px;
         }
 
         .producto h3 {
@@ -127,6 +118,9 @@
             cursor: pointer;
             font-family: inherit;
             border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+            min-width: 80px;
         }
 
         .btn-comprar:hover {
@@ -151,13 +145,60 @@
             color: #333;
         }
 
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        *:focus {
+            outline: 3px solid #005fcc;
+            outline-offset: 2px;
+        }
+
+        .btn-comprar:focus {
+            outline: 3px solid #005fcc;
+            outline-offset: 2px;
+            background-color: #b0b0b0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header role="banner">
         <div class="header-content">
-            <div class="logo">MANACO</div>
-            <nav>
+            <div class="logo" role="img" aria-label="MANACO - Logotipo de la empresa">MANACO</div>
+            <nav role="navigation" aria-label="Navegación principal">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
@@ -167,43 +208,67 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Calzado que impulsa tu paso</h1>
+    <main id="main-content" role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">Calzado que impulsa tu paso</h1>
         </section>
 
-        <section class="productos-section">
-            <h2>Productos</h2>
-            <ul class="productos-lista">
-                <li>
+        <section class="productos-section" aria-labelledby="productos-title">
+            <h2 id="productos-title">Productos</h2>
+            <ul class="productos-lista" role="list">
+                <li role="listitem">
                     <article class="producto">
-                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 1" src="assets/img1.png"/>
+                        <img class="producto-imagen" 
+                             alt="Zapato deportivo negro con suela blanca, ideal para correr y actividades deportivas" 
+                             src="assets/img1.png"/>
                         <h3>Producto 1</h3>
-                        <p class="precio">$00.00</p>
-                        <button class="btn-comprar" type="button">Comprar</button>
+                        <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
+                        <button class="btn-comprar" type="button" 
+                                aria-describedby="producto1-desc">
+                            Comprar
+                        </button>
+                        <span id="producto1-desc" class="sr-only">
+                            Añadir Producto 1 al carrito de compras
+                        </span>
                     </article>
                 </li>
-                <li>
+                <li role="listitem">
                     <article class="producto">
-                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 2" src="assets/img2.png"/>
+                        <img class="producto-imagen" 
+                             alt="Zapato casual marrón de cuero, perfecto para uso diario y ocasiones informales" 
+                             src="assets/img2.png"/>
                         <h3>Producto 2</h3>
-                        <p class="precio">$00.00</p>
-                        <button class="btn-comprar" type="button">Comprar</button>
+                        <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
+                        <button class="btn-comprar" type="button" 
+                                aria-describedby="producto2-desc">
+                            Comprar
+                        </button>
+                        <span id="producto2-desc" class="sr-only">
+                            Añadir Producto 2 al carrito de compras
+                        </span>
                     </article>
                 </li>
-                <li>
+                <li role="listitem">
                     <article class="producto">
-                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 3" src="assets/img3.png"/>
+                        <img class="producto-imagen" 
+                             alt="Zapato formal negro de vestir, elegante para eventos y ocasiones especiales" 
+                             src="assets/img3.png"/>
                         <h3>Producto 3</h3>
-                        <p class="precio">$00.00</p>
-                        <button class="btn-comprar" type="button">Comprar</button>
+                        <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
+                        <button class="btn-comprar" type="button" 
+                                aria-describedby="producto3-desc">
+                            Comprar
+                        </button>
+                        <span id="producto3-desc" class="sr-only">
+                            Añadir Producto 3 al carrito de compras
+                        </span>
                     </article>
                 </li>
             </ul>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p class="logofoter">Copyright 2025 MANACO</p>
     </footer>
 </body>
