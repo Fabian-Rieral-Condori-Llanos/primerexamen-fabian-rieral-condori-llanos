@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANACO - Calzado de Calidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            border: 2px solid #333;
+        }
+
+        header {
+            padding: 1rem;
+            border-bottom: 2px solid #333;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-color: #d0d0d0;
+            padding: 3rem 2rem;
+            margin: 2rem;
+            border: 2px solid #333;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .productos-section {
+            padding: 2rem;
+        }
+
+        .productos-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .productos-lista {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .producto {
+            text-align: center;
+        }
+
+        .producto-imagen {
+            width: 120px;
+            height: 120px;
+            background-color: #d0d0d0;
+            border: 2px solid #333;
+            margin: 0 auto 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .producto-imagen::before,
+        .producto-imagen::after {
+            content: '';
+            position: absolute;
+            background-color: #333;
+            width: 2px;
+            height: 100px;
+        }
+
+        .producto-imagen::before {
+            transform: rotate(45deg);
+        }
+
+        .producto-imagen::after {
+            transform: rotate(-45deg);
+        }
+
+        .producto h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .precio {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .btn-comprar {
+            background-color: #d0d0d0;
+            border: 2px solid #333;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-family: inherit;
+            border-radius: 4px;
+        }
+
+        .btn-comprar:hover {
+            background-color: #c0c0c0;
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            border-top: 2px solid #333;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .logofoter {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">MANACO</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Calzado que impulsa tu paso</h1>
+        </section>
+
+        <section class="productos-section">
+            <h2>Productos</h2>
+            <ul class="productos-lista">
+                <li>
+                    <article class="producto">
+                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 1" src="assets/img1.png"/>
+                        <h3>Producto 1</h3>
+                        <p class="precio">$00.00</p>
+                        <button class="btn-comprar" type="button">Comprar</button>
+                    </article>
+                </li>
+                <li>
+                    <article class="producto">
+                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 2" src="assets/img2.png"/>
+                        <h3>Producto 2</h3>
+                        <p class="precio">$00.00</p>
+                        <button class="btn-comprar" type="button">Comprar</button>
+                    </article>
+                </li>
+                <li>
+                    <article class="producto">
+                        <img class="producto-imagen" role="img" aria-label="Imagen del Producto 3" src="assets/img3.png"/>
+                        <h3>Producto 3</h3>
+                        <p class="precio">$00.00</p>
+                        <button class="btn-comprar" type="button">Comprar</button>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p class="logofoter">Copyright 2025 MANACO</p>
+    </footer>
+</body>
+</html>
