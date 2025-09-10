@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MANACO - Calzado Deportivo, Casual y Formal | Zapatos de Calidad</title>
-    <meta name="description" content="Descubre MANACO, tu tienda de calzado que impulsa tu paso. Zapatos deportivos, casuales y formales de alta calidad para cada ocasión. ¡Compra online ahora!">
+    <meta name="description" content="Descubre MANACO, tu tienda de calzado que impulsa tu paso. Zapatos deportivos, casuales y formales de alta calidad para cada ocasión.">
     <meta name="keywords" content="zapatos, calzado, deportivo, casual, formal, MANACO, tienda online, calidad">
     <meta name="author" content="MANACO">
     <link rel="canonical" href="https://www.manaco.com.bo/">
@@ -29,6 +29,11 @@
     <header role="banner">
         <div class="header-content">
             <div class="logo" role="img" aria-label="MANACO - Logotipo de la empresa">MANACO</div>
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav role="navigation" aria-label="Navegación principal">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
@@ -46,82 +51,88 @@
 
         <section class="productos-section" aria-labelledby="productos-title">
             <h2 id="productos-title">Productos</h2>
-            <ul class="productos-lista" role="list">
-                <li role="listitem">
-                    <article class="producto">
-                        <img class="producto-imagen" 
+            <div class="productos-container">
+                <article class="producto">
+                    <img class="producto-imagen" 
                              alt="Zapato deportivo negro con suela blanca, ideal para correr y actividades deportivas" 
                              src="assets/img1.png"/>
+                    <div class="producto-info">
                         <h3>Producto 1</h3>
                         <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
                         <button class="btn-comprar" type="button" 
                                 aria-describedby="producto1-desc">
                             Comprar
                         </button>
-                        <span id="producto1-desc" class="sr-only">
-                            Añadir Producto 1 al carrito de compras
-                        </span>
-                    </article>
-                </li>
-                <li role="listitem">
-                    <article class="producto">
-                        <img class="producto-imagen" 
+                    </div>
+                    <span id="producto1-desc" class="sr-only">
+                        Añadir Producto 1 al carrito de compras
+                    </span>
+                </article>
+
+                <article class="producto">
+                     <img class="producto-imagen" 
                              alt="Zapato casual marrón de cuero, perfecto para uso diario y ocasiones informales" 
                              src="assets/img2.png"/>
+                    <div class="producto-info">
                         <h3>Producto 2</h3>
                         <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
                         <button class="btn-comprar" type="button" 
                                 aria-describedby="producto2-desc">
                             Comprar
                         </button>
-                        <span id="producto2-desc" class="sr-only">
-                            Añadir Producto 2 al carrito de compras
-                        </span>
-                    </article>
-                </li>
-                <li role="listitem">
-                    <article class="producto">
-                        <img class="producto-imagen" 
+                    </div>
+                    <span id="producto2-desc" class="sr-only">
+                        Añadir Producto 2 al carrito de compras
+                    </span>
+                </article>
+
+                <article class="producto">
+                    <img class="producto-imagen" 
                              alt="Zapato formal negro de vestir, elegante para eventos y ocasiones especiales" 
                              src="assets/img3.png"/>
-                        <div class="producto-info">
-                            <h3>Producto 3</h3>
-                            <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
-                            <button class="btn-comprar" type="button" 
-                                    aria-describedby="producto3-desc">
-                                Comprar
-                            </button>
-                        </div>
-                        <span id="producto3-desc" class="sr-only">
-                            Añadir Producto 3 al carrito de compras
-                        </span>
-                    </article>
-                </li>
-            </ul>
+                    <div class="producto-info">
+                        <h3>Producto 3</h3>
+                        <p class="precio" aria-label="Precio: cero pesos con cero centavos">$00.00</p>
+                        <button class="btn-comprar" type="button" 
+                                aria-describedby="producto3-desc">
+                            Comprar
+                        </button>
+                    </div>
+                    <span id="producto3-desc" class="sr-only">
+                        Añadir Producto 3 al carrito de compras
+                    </span>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer role="contentinfo">
         <p class="logofoter">Copyright 2025 MANACO</p>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const navMenu = document.querySelector('nav ul');
             
-            menuToggle.addEventListener('click', function() {
-                menuToggle.classList.toggle('active');
-                
-                navMenu.classList.toggle('active');
-            });
-            
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    menuToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    menuToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
                 });
-            });
+                
+                const navLinks = document.querySelectorAll('nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
         });
     </script>
 </body>
